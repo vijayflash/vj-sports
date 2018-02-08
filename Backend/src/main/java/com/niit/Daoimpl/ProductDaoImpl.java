@@ -72,7 +72,7 @@ public class ProductDaoImpl implements ProductDao {
 
 	@Transactional
 	public void saveOrUpdate(Product product) {
-		// TODO Auto-generated method stub
+	
 		sessionFactory.getCurrentSession().saveOrUpdate(product);
 	}
 

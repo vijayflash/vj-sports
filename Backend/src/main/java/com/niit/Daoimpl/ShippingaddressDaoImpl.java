@@ -1,4 +1,4 @@
-package com.niit.Daoimpl;
+/*package com.niit.Daoimpl;
 
 import java.util.List;
 
@@ -114,3 +114,4 @@ public class ShippingaddressDaoImpl implements ShippingaddressDao {
 		return list;
 	}
 }
+*/

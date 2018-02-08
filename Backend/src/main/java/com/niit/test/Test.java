@@ -7,7 +7,7 @@ import com.niit.Dao.CartDao;
 import com.niit.Dao.CategoryDao;
 import com.niit.Dao.ProductDao;
 import com.niit.Dao.RoleDao;
-import com.niit.Dao.ShippingaddressDao;
+/*import com.niit.Dao.ShippingaddressDao;*/
 import com.niit.Dao.SupplierDao;
 import com.niit.Dao.UserDao;
 import com.niit.model.Billingaddress;
@@ -15,7 +15,7 @@ import com.niit.model.Cart;
 import com.niit.model.Category;
 import com.niit.model.Product;
 import com.niit.model.Role;
-import com.niit.model.Shippingaddress;
+/*import com.niit.model.Shippingaddress;*/
 import com.niit.model.Supplier;
 import com.niit.model.User;
 
@@ -33,7 +33,7 @@ public class Test {
 		BillingaddressDao billingaddressDao = (BillingaddressDao) context.getBean("BillingaddressDao");
 		CartDao cartDao = (CartDao) context.getBean("CartDao");
 		SupplierDao supplierDao = (SupplierDao) context.getBean("SupplierDao");
-		ShippingaddressDao shippingaddressDao = (ShippingaddressDao) context.getBean("ShippingaddressDao");
+		/*ShippingaddressDao shippingaddressDao = (ShippingaddressDao) context.getBean("ShippingaddressDao");*/
 		RoleDao roleDao = (RoleDao) context.getBean("RoleDao");
 
 		Category category = (Category) context.getBean("category");
@@ -43,7 +43,7 @@ public class Test {
 		Cart cart = (Cart) context.getBean("cart");
 		Supplier supplier = (Supplier) context.getBean("supplier");
 
-		Shippingaddress shippingaddress = (Shippingaddress) context.getBean("shippingaddress");
+		/*Shippingaddress shippingaddress = (Shippingaddress) context.getBean("shippingaddress");*/
 		Role role = (Role) context.getBean("role");
 
 		category.setCategoryName("Watches");
@@ -71,7 +71,7 @@ public class Test {
 		productDao.saveOrUpdate(product);
 
 		billingaddress.setAddress("hfdjdufuinv");
-		billingaddress.setContactNumber(897465);
+		billingaddress.setContactNumber("897465");
 		billingaddressDao.saveOrUpdate(billingaddress);
 
 		cart.setProductName("dfhjj");
@@ -80,10 +80,10 @@ public class Test {
 		supplier.setSupplierName("hddsjk");
 		supplier.setContactNumber(87968764);
 		supplierDao.saveOrUpdate(supplier);
-		
+		/*
 		shippingaddress.setAddress("fdgfs");
 		shippingaddress.setUserName("jkfgjd");
-		shippingaddressDao.saveOrUpdate(shippingaddress);
+		shippingaddressDao.saveOrUpdate(shippingaddress);*/
 
 	}
 }

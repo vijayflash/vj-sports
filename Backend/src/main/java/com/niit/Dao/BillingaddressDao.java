@@ -5,14 +5,14 @@ import java.util.List;
 import com.niit.model.Billingaddress;
 
 public interface BillingaddressDao {
-
-	public List<Billingaddress> list();
+	
+    public List<Billingaddress> list();
 	
 	public Billingaddress getByBillId(int billid);		
 	
 	public Billingaddress getByBillingAddress(String billingaddress);	
 	
-    public Billingaddress getByContactNumber(int contactnumber);
+    public Billingaddress getByContactNumber(String contactnumber);
     
 	public void saveOrUpdate(Billingaddress billingaddress);
 		

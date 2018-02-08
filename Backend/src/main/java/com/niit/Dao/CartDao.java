@@ -7,25 +7,28 @@ import com.niit.model.Cart;
 
 public interface CartDao {
 
+
+	public Cart getByItemId(int itemId);
+	
+	public void saveOrUpdate(Cart cartitem);
+	
+	public void save(Cart cartitem);
+	
 	public List<Cart> list();
-
-	public Cart getByCartId(int cartid);
-
-	public Cart getByProductId(int productid);		
-
+	
+	public List<Cart> getCartItems(String username);
+	
+	public void deleteCartItem(Cart cart);
+	
+	public Cart getByUserandProduct(String username, int productId);
+	
+	public boolean itemAlreadyExist(String username, int productId);
+	
+	public boolean getByUserName(String username);
+	
+	public List<Cart> getDispatchItems(String username);
+	
+	public List<Cart> getAllItems();
+	
 	public  List<Cart> getByEmailId(String email);
-
-	public Cart getByProductName(String productname);	
-
-	public void saveOrUpdate(Cart cart);
-		
-	public void delete(int cartId);
-
-	public Long getTotalAmount(int id);
-
-	public boolean itemAlreadyExist(String emailId, int productId, boolean b);
-
-	public Cart getByUserandProduct(String emailId, int productId);
-
-	public void updateshipping(String emailId, int shippingId);
 }

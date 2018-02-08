@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Entity
 @Component
 public class Billingaddress {
-
+		
 	@Id
 	@GeneratedValue
 	private int billId;
@@ -19,10 +19,9 @@ public class Billingaddress {
 	private int userId;
 	private String emailId;
 	private String userName;
-	private int contactNumber;
+	private String contactNumber;
 	private String address;
 	private int zipcode;
-	
 	
 	public int getBillId() {
 		return billId;
@@ -48,10 +47,10 @@ public class Billingaddress {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public int getContactNumber() {
+	public String getContactNumber() {
 		return contactNumber;
 	}
-	public void setContactNumber(int contactNumber) {
+	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}
 	public String getAddress() {
@@ -66,7 +65,7 @@ public class Billingaddress {
 	public void setZipcode(int zipcode) {
 		this.zipcode = zipcode;
 	}
-	
+
 	
 	
 }

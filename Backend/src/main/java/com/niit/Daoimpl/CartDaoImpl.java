@@ -2,8 +2,8 @@ package com.niit.Daoimpl;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -12,32 +12,60 @@ import org.springframework.transaction.annotation.Transactional;
 import com.niit.Dao.CartDao;
 import com.niit.model.Cart;
 
+@Transactional
 @Repository("CartDao")
 public class CartDaoImpl implements CartDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	private Object cart;
-	
+
 	public CartDaoImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-	
-	@Transactional
+
+	public Cart getByItemId(int itemId) {
+		Cart cart = (Cart) sessionFactory.getCurrentSession().get(Cart.class, itemId);
+		return cart;
+	}
+
+	public void saveOrUpdate(Cart cartitem) {
+
+		sessionFactory.getCurrentSession().saveOrUpdate(cartitem);
+
+	}
+
+	public void save(Cart cartitem) {
+
+		sessionFactory.getCurrentSession().save(cartitem);
+
+	}
+
+	@SuppressWarnings("unchecked")
 	public List<Cart> list() {
-		@SuppressWarnings({ "unchecked" })
-		List<Cart> listCart = (List<Cart>) sessionFactory.getCurrentSession().createCriteria(Cart.class)
-				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
-		return listCart;
+		return sessionFactory.getCurrentSession().createQuery("from Category").list();
 	}
 
-
-	@Transactional
-	public Cart getByCartId(int cartid) {
-		String hql = "from Cart where cartId ='" + cartid + "'";
-		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
+	public List<Cart> getCartItems(String username) {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from Cart where username=:username and status='New'");
+		query.setParameter("username", username);
 		@SuppressWarnings("unchecked")
-		List<Cart> listCart = (List<Cart>) (query).list();
+		List<Cart> list = query.list();
+		return list;
+	}
+
+	public void deleteCartItem(Cart cart) {
+		sessionFactory.getCurrentSession().delete(cart);
+	}
+
+	public Cart getByUserandProduct(String username, int productId) {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from Cart where username=:username and productid=:productId");
+		query.setParameter("username", username);
+		query.setParameter("productId", productId);
+
+		@SuppressWarnings("unchecked")
+		List<Cart> listCart = (List<Cart>) query.list();
 
 		if (listCart != null && !listCart.isEmpty()) {
 			return listCart.get(0);
@@ -45,31 +73,46 @@ public class CartDaoImpl implements CartDao {
 		return null;
 	}
 
-	@Transactional
-	public Cart getByProductId(int productid) {
-		String hql = "from Cart where ProductId ='" + productid + "'";
-		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
-		@SuppressWarnings("unchecked")
-		List<Cart> listCart = (List<Cart>) (query).list();
+	public boolean itemAlreadyExist(String username, int productId) {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from Cart where username=:username and productid=:productId and status='New'");
+		query.setParameter("username", username);
+		query.setParameter("productId", productId);
 
-		if (listCart != null && !listCart.isEmpty()) {
-			return listCart.get(0);
+		@SuppressWarnings("unchecked")
+		List<Cart> list = (List<Cart>) query.list();
+		if (list != null && !list.isEmpty()) {
+			return true;
 		}
-		return null;
+		return false;
 	}
+	public boolean getByUserName(String username) {
+		String hql = "from Cart where username ='" + username +"'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 
-	@Transactional
-	public Cart getByProductName(String productname) {
-		String hql = "from Cart where ProductName ='" + productname + "'";
-		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
-		List<Cart> listCart = (List<Cart>) (query).list();
-
-		if (listCart != null && !listCart.isEmpty()) {
-			return listCart.get(0);
+		List<Cart> list = (List<Cart>) query.list();
+		if (list != null && !list.isEmpty()) {
+			return true;
 		}
-		return null;
-
+		return false;
+	}
+	
+	public List<Cart> getDispatchItems(String username) {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from Cart where username=:username and status='Dispatched'");
+		query.setParameter("username", username);
+		@SuppressWarnings("unchecked")
+		List<Cart> list = query.list();
+		return list;
+	}
+	
+	public List<Cart> getAllItems() {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from Cart where status='Dispatched'and days > -2 order by itemId");
+		@SuppressWarnings("unchecked")
+		List<Cart> list = query.list();
+		return list;
 	}
 	
 	@Transactional
@@ -82,55 +125,5 @@ public class CartDaoImpl implements CartDao {
 		return list;
 	}
 	
-	@Transactional
-	public Long getTotalAmount(int id) {
-	String hql = "select sum(total) from Cart where userId = " + "'" + id + "'" + "and status = '" + "N" +"'";
-	Query query = sessionFactory.getCurrentSession().createQuery(hql);
-	Long sum = (Long) query.uniqueResult();
-		return sum;
-	}
 
-	@Transactional
-	public void saveOrUpdate(Cart cart) {
-		
-		
-		sessionFactory.getCurrentSession().saveOrUpdate(cart);
-	}
-
-	@Transactional
-	public void delete(int cartId) {
-		Cart cartToDelete = new Cart();
-		cartToDelete.setCartId(cartId);
-		sessionFactory.getCurrentSession().delete(cartToDelete);
-		
-	}
-	@Transactional
-	public boolean itemAlreadyExist(String emailId, int productId, boolean b) {
-		String hql = "from Cart where emailId= '" + emailId + "' and " + " productId ='" + productId+"'";
-		org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery(hql);
-		@SuppressWarnings("unchecked")
-		List<Cart> list = (List<Cart>) query.list();
-		if (list != null && !list.isEmpty()) {
-			return true;
-		}
-		return false;
-	}
-	@Transactional
-	public Cart getByUserandProduct(String emailId, int productId) {
-		String hql = "from Cart where emailId= '" + emailId + "' and " + " productId ='" + productId+"'";
-		org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery(hql);
-		@SuppressWarnings("unchecked")
-		List<Cart> listCart = (List<Cart>) query.list();
-		
-		if (listCart != null && !listCart.isEmpty()){
-			return listCart.get(0);
-		}
-		return null;
-	}
-	@Transactional
-	public void updateshipping(String emailId, int shippingId) {
-		String hql = " update Cart set shippingId = '" + shippingId + "' where emailId = '" + emailId + "'";
-		sessionFactory.getCurrentSession().createQuery(hql);
-	
-	}
 }

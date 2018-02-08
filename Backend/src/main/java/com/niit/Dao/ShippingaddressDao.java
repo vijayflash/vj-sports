@@ -1,4 +1,4 @@
-package com.niit.Dao;
+/*package com.niit.Dao;
 import java.util.List;
 
 import com.niit.model.Shippingaddress;
@@ -22,4 +22,4 @@ public interface ShippingaddressDao {
 	public void delete(int shippingId);
 	
 	public void editShippingAddress(Shippingaddress shippingaddress);
-}
+}*/
