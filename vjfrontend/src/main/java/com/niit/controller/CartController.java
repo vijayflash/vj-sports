@@ -118,10 +118,10 @@ public class CartController {
 			}
 			model.addAttribute("grandtotal", grandtotal);
 
-			return "cart";
+			return "Cart";
 		} else {
 			model.addAttribute("isUserClikedEmptyCart", true);
-			return "EmptyCart";
+			return "emptycart";
 		}
 	}
 
@@ -185,7 +185,7 @@ public class CartController {
 		model.addAttribute("cartitems", list);
 		model.addAttribute("size", size);
 		model.addAttribute("isUserClickedHistory", true);
-		return "OrderPage";
+		return "Order";
 	}
 
 	@RequestMapping("adminCart")

@@ -103,8 +103,14 @@ body{
 					<li><a href="#" id="name">Hi ${pageContext.request.userPrincipal.name}!!</a></li>
 					<li><a href="myCart" id="name"><span
 									class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
-									</security:authorize>
-									</li>
+									<li><a href="History" id="name"><span
+									class="glyphicon glyphicon-list" ></span> Orders</a></li>
+					</security:authorize></li>
+					<security:authorize access="hasRole('ROLE_ADMIN')">
+					<li><a href="admincart" id="name"><span
+									class="glyphicon glyphicon-list-alt" ></span> Orders</a></li>
+					</security:authorize>
+								
 									</c:if>
 						
 		<c:if test="${pageContext.request.userPrincipal.name==null }">				
@@ -118,8 +124,7 @@ body{
 			<c:if test="${pageContext.request.userPrincipal.name!=null }">
  								<li id=""><security:authorize
 						access="hasRole('ROLE_USER')">
-				<li><a href="#" id="name">Hi
-								${pageContext.request.userPrincipal.name}!!</a></li>
+				
  				</security:authorize></li>
  											
  							<c:url value="/logout" var="logout"></c:url>

@@ -87,7 +87,7 @@ public class UserController {
 
 	@RequestMapping("/afterlogin")
 	public String loginProcess(Principal p, Model model) {
-
+/*
 		String email = p.getName();
 		System.out.println(email);
 
@@ -97,11 +97,11 @@ public class UserController {
 
 		String role1 = role.getRole();
 
-		if (role1.equals("ROLE_ADMIN")) {
+		if (role1.equals("ROLE_ADMIN")) {*/
 
 			return "home";
 			
-			
+		/*	
 		}
 		else if(role1.equals("ROLE_USER")){
 			List<Product> product = productDao.getByFeatured();
@@ -109,11 +109,11 @@ public class UserController {
 			model.addAttribute("userLoggedIn", "true");
 			return "home";
 			}
-		
-	else {
+		*/
+	/*else {
 
 			return "home";
-		}
+		}*/
 	}
 
 }

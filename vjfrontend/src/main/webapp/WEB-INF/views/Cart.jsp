@@ -55,7 +55,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${cartitems}" var="cartitem">
+				<c:forEach items="${cartitems}" var="cartitem">
 				<tr style="margin-top: 5px; margin-right: 20px;!important"
 					class="item-row">
 					<td><a href="Productdescription?productId=${cartitem.productId}"><img
@@ -89,7 +89,7 @@
 						Shopping
 				</a></td>
 				<td colspan="2" class="text-right"><a href="proceed"
-					class="btn btn-success"> checkout <span
+					class="btn btn-success">checkout <span
 						class="glyphicon glyphicon-play"></span>
 				</a></td>
 			</tr>

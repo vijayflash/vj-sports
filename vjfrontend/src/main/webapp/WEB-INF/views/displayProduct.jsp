@@ -93,7 +93,7 @@ body {
 </c:if>
 <c:if test="${empty DisplayByFeatured}">
 		<div id="albums" class="col-sm-12">
-			<p class="Latest">Albums</p>
+			<p class="Latest">Products</p>
 	</div>
 </c:if>
 <c:forEach items="${product}" var="product" varStatus="status">
