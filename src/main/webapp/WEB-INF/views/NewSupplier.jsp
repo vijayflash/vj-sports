@@ -7,7 +7,7 @@
 <title>New Supplier</title>
 <style type="text/css">
 body {
-	background-color: none;
+	 background-color: #7c4dff;
 }
 label{
 	color: black;

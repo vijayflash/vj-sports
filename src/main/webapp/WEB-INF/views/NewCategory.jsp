@@ -13,7 +13,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style type="text/css">
 body {
-	background-image: url("resources/images/bg/background.jpg");
+	background-color: #7c4dff;
 }
 label{
 	color: black;

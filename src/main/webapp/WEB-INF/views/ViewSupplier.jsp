@@ -7,7 +7,7 @@
   margin: 1em 8em;
   width: 80%;
   overflow: hidden;
-  background: transparent;
+  background-color:  #7c4dff;
   color: black;
   border-radius: 10px;
   border: 1px solid black;
@@ -21,7 +21,7 @@
 .artist th {
   display: none;
   border: 1px solid black;
-  background-color: white;
+  background-color:  #6200ea;
   color: black;
   padding: 1em;
 }
@@ -75,10 +75,7 @@
 a{
 color:red;
 }
-body {
-  padding: 0 2em;
-  background-color: none;
-}
+
 h1 {
   font-weight: normal;
   color: #024457;
@@ -87,7 +84,7 @@ h1 span {
   color: #167F92;
 }
 #albums{
-background: threedlightshadow;
+background: #6200ea;
 color: black;
 font-size: x-large;
 font-family: fantasy;
@@ -97,6 +94,9 @@ margin-bottom: 5px;
 .Latest{
 padding-top: 10px;
 margin-left: 20px;
+}
+body{
+ background-color: #7c4dff;
 }
 </style>
 </head>

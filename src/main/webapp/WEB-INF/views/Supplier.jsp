@@ -13,11 +13,11 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<%@include file="/WEB-INF/views/header.jsp" %>	
 <body>
 			
 
-<%@include file="/WEB-INF/views/header.jsp" %>			
-  
+
   
   
   <c:choose>

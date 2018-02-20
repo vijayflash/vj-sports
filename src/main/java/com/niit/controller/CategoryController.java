@@ -30,9 +30,9 @@ public class CategoryController {
 	public String addCategory(@ModelAttribute Category category, Model model){
 		categoryDAO.saveOrUpdate(category);
 		System.out.println(category.getCategoryName());
-		//category.setCategoryName(category.getCategoryName());
+		/*//category.setCategoryName(category.getCategoryName());
 		//category.setCategoryDescription(category.getCategoryDescription());
-		return "redirect:ViewCategory";
+*/		return "redirect:ViewCategory";
 	
 	}
 	@RequestMapping("ViewCategory")

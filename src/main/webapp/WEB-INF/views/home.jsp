@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ include file="header.jsp"%>
+
 <html>
 <head>
 <title>VJ SPORTS</title>
@@ -129,10 +130,17 @@ ul.dropdown-lr {
 			</a>
 		</div>
 	</div>
+	<br><br><br>
 	
-
-
-
+<%-- <c:if test="${pageContext.request.userPrincipal.name==null }">
+					<%@ include file="displayfeatured.jsp"%>
+					</c:if>
+					<c:if test="${pageContext.request.userPrincipal.name!=null }">
+					<security:authorize access="hasRole('ROLE_USER')">
+					<%@ include file="displayfeatured.jsp"%>
+					</security:authorize>
+					</c:if>
+					<br>	<br>	<br>	<br>	<br>	<br> --%>
 
 </body>
 

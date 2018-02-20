@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- 
+ <style>
 body {
-	background-image: url("resources/images/bg/background.jpg");
+	  background-color: #7c4dff;
 }
 label{
-	color: white;
+	color: black;
 }
 </style>
   <script>
@@ -107,14 +107,14 @@ label{
   <div class="form-group">
     <label class="control-label col-sm-offset-2 col-sm-3" for="pwd">Product description:</label>
     <div class="col-sm-3"> 
-      <input type="text" class="form-control" name="Productdescription" id="productdescription" placeholder="Enter Album Description" required>
+      <input type="text" class="form-control" name="Productdescription" id="productdescription" placeholder="Enter product Description" required>
     </div>
   </div>
     <div class="form-group">
     <label class="control-label col-sm-offset-2 col-sm-3" for="pwd">supplier:</label>
     <div class="col-sm-3"> 
   <select class="form-control" name="SupplierName" id="suppliername">
-    <option value="">Select Artist</option>
+    <option value="">Select Supplier</option>
   <c:forEach items="${supplierList}" var="supplier" varStatus="status">
   <option value="${supplier.supplierName}">${supplier.supplierName}</option>
   </c:forEach></select>

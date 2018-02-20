@@ -1,29 +1,40 @@
 package com.niit.controller;
 
 
-/*import java.util.List;*/
+import java.util.List;
 
-/*import org.springframework.beans.factory.annotation.Autowired;*/
+import org.springframework.beans.factory.annotation.Autowired;
+
+
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-/*import com.niit.Dao.ProductDao;
+import com.niit.Dao.ProductDao;
 import com.niit.model.Product;
-*/
+
 
 @Controller
 public class HomeController {
-	/*@Autowired
-	private ProductDao ProductDao;*/
+	@Autowired
+	private ProductDao ProductDao;
 	
 	
 	@RequestMapping("/")
 	public String indexPage(Model model) {
-		/*List<Product> product = ProductDao.getByFeatured();
-		model.addAttribute("Product", product);*/
+		List<Product> product = ProductDao.getByFeatured();
+		model.addAttribute("Product", product);
+		
+		return "home";
+		
+	}
+	@RequestMapping("/home")
+	public String homePage(Model model) {
+		List<Product> product = ProductDao.getByFeatured();
+		model.addAttribute("Product", product);
 		
 		return "home";
 		

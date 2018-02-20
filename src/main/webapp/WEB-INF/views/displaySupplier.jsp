@@ -98,7 +98,7 @@ body {
 							</div>
 							<div class="back face center">
 								<p class="proname">${supplier.supplierName}</p>
-								<p><a href="displayproduct?suppliername=${supplier.supplierName}"><button type="submit" class="btn btn-warning btn-md"><span class="glyphicon glyphicon-eye-open"></span>View</button></a></p>
+								<p><a href="displayProduct?suppliername=${supplier.supplierName}"><button type="submit" class="btn btn-warning btn-md"><span class="glyphicon glyphicon-eye-open"></span>View</button></a></p>
 							</div>
 						</div>
 					</div>

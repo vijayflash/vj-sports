@@ -22,7 +22,7 @@
 .responstable th {
   display: none;
   border: 1px solid white;
-  background-color: white;
+   background-color: #6200ea;
   color: black;
   padding: 1em;
 }
@@ -77,8 +77,8 @@ a{
 color:red;
 }
 body {
-  padding: 0 2em;
-  background-color:  #ff5252;
+  
+  background-color: #7c4dff;
 }
 h1 {
   font-weight: normal;
@@ -88,7 +88,7 @@ h1 span {
   color: #167F92;
 }
 #albums{
-background: threedlightshadow;
+  background-color:  #6200ea;
 color: black;
 font-size: x-large;
 font-family: fantasy;

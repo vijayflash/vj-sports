@@ -70,6 +70,18 @@ public class SupplierController {
 		supplierDao.saveOrUpdate(supplier);
 		return "redirect:ViewSupplier";
 	}
-}
+	@RequestMapping("displaysupplier")
+	public String DisplayArtist(Model model){
+		
+		List<Supplier> supplierList = supplierDao.list();
+		model.addAttribute("supplierList", supplierList);
+		model.addAttribute("ViewSupplierButtonClicked", true);
+		
+		return "displaySupplier";
+		
+	}
+
+ }
+
 
  

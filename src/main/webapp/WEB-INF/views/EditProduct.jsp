@@ -13,10 +13,10 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style type="text/css">
 body {
-	background-image: url("resources/images/bg/background.jpg");
+	background-color: #7c4dff;
 }
 label{
-	color: white;
+	color: black;
 }
 </style>
 </head>
@@ -67,19 +67,19 @@ function isAlphabet(elem, helperMsg) {
 <br> <br> <br>
 <form class="form-horizontal" action="ProductEdited" method="post" onsubmit="return formCategory()" enctype="multipart/form-data">
   <div class="form-group">
-    <label class="control-label col-sm-offset-2 col-sm-3" for="email">Album ID:</label>
+    <label class="control-label col-sm-offset-2 col-sm-3" for="email">product ID:</label>
     <div class="col-sm-3">
       <input type="text" class= "form-control" name="productId" value="${product.productId}" readonly="true">
     </div>
   </div>
     <div class="form-group">
-    <label class="control-label col-sm-offset-2 col-sm-3" for="pwd">Album Name :</label>
+    <label class="control-label col-sm-offset-2 col-sm-3" for="pwd">Product Name :</label>
     <div class="col-sm-3"> 
       <input type="text" class= "form-control" name="productName" value="${product.productName}">
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-sm-offset-2 col-sm-3" for="pwd">Album Description :</label>
+    <label class="control-label col-sm-offset-2 col-sm-3" for="pwd">Product Description :</label>
     <div class="col-sm-3"> 
       <input type="text" class= "form-control" name="Productdescription" value="${Product.Productdescription}">
     </div>
@@ -88,7 +88,7 @@ function isAlphabet(elem, helperMsg) {
     <label class="control-label col-sm-offset-2 col-sm-3" for="pwd">Product:</label>
     <div class="col-sm-3"> 
   <select class="form-control" name="SupplierName" id="suppliername">
-    <option value="">Select Artist</option>
+    <option value="">Select supplier</option>
   <c:forEach items="${supplierList}" var="supplier" varStatus="status">
   <option value="${supplier.supplierName}">${supplier.supplierName}</option>
   </c:forEach></select>

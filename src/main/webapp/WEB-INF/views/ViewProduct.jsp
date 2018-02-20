@@ -20,7 +20,7 @@
 .album th {
   display: none;
   border: 1px solid black;
-  background-color: white;
+   background-color:  #6200ea;
   color: black;
   padding: 1em;
 }
@@ -75,7 +75,7 @@ a{
 color:red;
 }
 body {
-  background-image: url("resources/images/bg/background.jpg")!important;
+  background-color:  #7c4dff;
 }
 h1 {
   font-weight: normal;
@@ -85,7 +85,7 @@ h1 span {
   color: #167F92;
 }
 #albums{
-background: threedlightshadow;
+  background-color:  #6200ea;
 color: black;
 font-size: x-large;
 font-family: fantasy;
@@ -102,7 +102,7 @@ margin-left: 20px;
 <div class="container">
 	<div class="row">
 		<div id="albums" class="col-sm-12">
-			<p class="Latest">Album</p>
+			<p class="Latest">Products</p>
 	</div>
 	</div>
 	</div>
@@ -112,7 +112,7 @@ margin-left: 20px;
 		<th>Id</th>
 		<th>Product Image</th>
 		<th>Name</th>
-		<th>Description</th>
+		<!-- <th>Description</th> -->
 		<th>Stock</th>
 		<th>Price</th>
 		<th>Category</th>
@@ -124,7 +124,7 @@ margin-left: 20px;
   <tr>
     <td>${status.count}</td>
 			<td>${product.productId}</td>
-			<td> <img src="resources/images/albums/${product.productId}.jpg" alt="${product.productId}" width=100px; height=100px;></td>
+			<td> <img src="resources/products/${product.productId}.jpg" alt="${product.productId}" width=100px; height=100px;></td>
 			<td>${product.productName}</td>
 			<%-- <td>${product.Productdescription}</td> --%>
 			<td>${product.stock}</td>

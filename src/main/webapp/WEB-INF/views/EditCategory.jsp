@@ -13,7 +13,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style type="text/css">
 body {
-	background-image: url("resources/images/bg/background.jpg");
+	background-color: #7c4dff;
 }
 label{
 	color: black;
@@ -23,12 +23,10 @@ label{
 <body>
 <script>
 function formCategory(){
-	// Make quick references to our fields
 	
 	var productname = document.getElementById('productname');
 	var productdescription = document.getElementById('productdescription');
-	// Check each input in the order that it appears in the form!
-	
+
 				if (notEmpty(categoryname, "Category Name Should not be empty")) {
 						if (isAlphabet(categoryname,
 								"Please enter only letters for Category Name")) {
@@ -47,7 +45,7 @@ function formCategory(){
 function notEmpty(elem, helperMsg) {
 	if (elem.value.length == 0) {
 		alert(helperMsg);
-		elem.focus(); // set the focus to this input
+		elem.focus(); 
 		return false;
 	}
 	return true;

@@ -6,7 +6,6 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<style type="text/css">
 <style type="text/css">
 .container1 {
 	background: transparent;
@@ -79,7 +78,7 @@ padding-top: 10px;
 margin-top: 250px;
 }
 body {
-	background-color: none;
+	background: url(resources/images/bg/background.jpg) !important;
 	padding: 0px;
 	height: 100%;
 }
@@ -89,7 +88,7 @@ body {
 <%@ include file="header.jsp"%>
 <c:if test="${not empty DisplayByFeatured}">
 		<div id="albums" class="col-sm-12">
-			<p class="Latest">Featured Products</p>
+			<p class="Latest">Featured Albums</p>
 	</div>
 </c:if>
 <c:if test="${empty DisplayByFeatured}">
@@ -102,12 +101,12 @@ body {
 					<div id="f1_container1">
 						<div id="f1_card1" class="shadow">
 							<div class="front face">
-								<img class="alb" src="resources/product/${product.productId}.jpg" />
+								<img class="alb" src="resources/products/${product.productId}.jpg" />
 							</div>
 							<div class="back face center">
 								<p class="proname">${product.productName}</p>
 								<p class="proprice">&#36; ${product.price}</p>
-								<p><a href="productdescription?productId=${product.productId}"><button type="submit" class="btn btn-warning btn-md"><span class="glyphicon glyphicon-eye-open"></span>View</button></a></p>
+								<p><a href="Productdescription?productId=${product.productId}"><button type="submit" class="btn btn-warning btn-md"><span class="glyphicon glyphicon-eye-open"></span>View</button></a></p>
 							</div>
 						</div>
 					</div>

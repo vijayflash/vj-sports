@@ -11,6 +11,77 @@
        
         
        <security:http auto-config="true" use-expressions="true">
+       <security:intercept-url pattern="/myCart**"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/addToCart**"
+			access="hasRole('ROLE_USER')" />	
+		<security:intercept-url pattern="/History"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/removeCart"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/increaseQty"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/decreaseQty"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/newAddress"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/getUpdateAdd**"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/updateAdd"
+			access="hasRole('ROLE_USER')" />	
+		<security:intercept-url pattern="/proceed"
+			access="hasRole('ROLE_USER')" />		
+		<security:intercept-url pattern="/addAddress"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/add"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/pay"
+			access="hasRole('ROLE_USER')" />	
+		<security:intercept-url pattern="/deleteAdd**"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/ThankYou"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/payment**"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/add"
+			access="hasRole('ROLE_USER')" />
+			
+		<security:intercept-url pattern="/Supplier"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/addSupplier"
+			access="hasRole('ROLE_ADMIN')" />		
+		<security:intercept-url pattern="/ViewSupplier"
+			access="hasRole('ROLE_ADMIN')" />	
+		<security:intercept-url pattern="/deleteSupplier"
+			access="hasRole('ROLE_ADMIN')" />	
+		<security:intercept-url pattern="/EditSupplier"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/SupplierEdited"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/Product"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/addProduct"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/ViewProduct"
+			access="hasRole('ROLE_ADMIN')" />	
+		<security:intercept-url pattern="/deleteProduct"
+			access="hasRole('ROLE_ADMIN')" />	
+		<security:intercept-url pattern="/EditProduct"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/ProductEdited"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/Category"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/addCategory"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/viewCategory"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/deleteCategory"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/editCategory"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/CategoryEdited"
+			access="hasRole('ROLE_ADMIN')" />
      
         <security:form-login  login-page="/login"
         	
